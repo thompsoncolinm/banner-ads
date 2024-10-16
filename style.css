@@ -1,0 +1,26 @@
+.bb iframe {
+    height: 250px;
+    width: 300px;
+    border: none;
+    overflow: hidden;
+}
+.dbb iframe {
+    height: 600px;
+    width: 300px;
+    border: none;
+    overflow: hidden;
+}
+.lb iframe {
+    width: 728px;
+    height: 90px;
+    border: none;
+    overflow: hidden;
+}
+
+#reload {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background-color: #00bfff;
+    color: #fff;
+}

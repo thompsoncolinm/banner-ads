@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Freedom Mobile Banner Ads</title>
+</head>
+
+<body>
+    <div class="flex flex-col gap-4 p-8 justify-center text-center">
+        <h1 class="text-2xl">Colin Thompson | Banner Ads</h1>
+        <ul class="flex gap-4 justify-center text-center">
+            <li><a class="text-blue-600" href="mailto:thomsoncolinm@gmail.com">thomsoncolinm@gmail.com</a></li>
+            <li><a class="text-blue-600" href="tel:+15199802710">519-980-2710</a></li>
+            <li><a class="text-blue-600" href="http://colin-m-thompson.com/">colin-m-thompson.com</a></li>
+        </ul>
+        <div class="alert alert-danger" role="alert">
+            Please be sure to turn any adblocker off to view this page properly.
+        </div>
+
+    </div>
+
+    <button class="btn btn-default p-4" id="reload">Reload Frames</button>
+
+    <section class="flex gap-8 p-8 flex-wrap w-full">
+        <div class="flex gap-4 flex-wrap items-center justify-center">
+            <div class="lb">
+                <iframe src="728x90_FRE-1226_Samsung_Beyond"></iframe>
+            </div>
+            <div class="bb">
+                <iframe src="300x250_FRE-1226_Samsung_Beyond"></iframe>
+            </div>
+            <div class="dbb">
+                <iframe src="300x600_FRE-1226_Samsung_Beyond"></iframe>
+            </div>
+        </div>
+        <div class="flex gap-4 flex-wrap items-center justify-center">
+            <div class="lb">
+                <iframe src="728x90_RedDeer_FRE-1268-01_NM_10for50"></iframe>
+            </div>
+            <div class="bb">
+                <iframe src="300x250_RedDeer_FRE-1268-01_NM_10for50"></iframe>
+            </div>
+            <div class="dbb">
+                <iframe src="300x600_RedDeer_FRE-1268-01_NM_10for50"></iframe>
+            </div>
+        </div>
+        <div class="flex gap-4 flex-wrap items-center justify-center">
+            <div class="lb">
+                <iframe src="728x90_FRE-1253-iPhone_8_"></iframe>
+            </div>
+            <div class="bb">
+                <iframe src="300x250_FRE-1253-iPhone_8_"></iframe>
+            </div>
+            <div class="dbb">
+                <iframe src="300x600_FRE-1253-iPhone_8_"></iframe>
+            </div>
+        </div>
+    </section>
+    <script>
+        document.getElementById("reload").addEventListener("click", function () {
+            document.querySelectorAll("iframe").forEach(function (iframe) {
+            iframe.src = iframe.src;
+            });
+            return false;
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en" class="">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="ad.size" content="width=300,height=250">
+    <title>300x250-banner</title>
+    <script type="text/javascript">
+        var clickTag = "http://www.freedommobile.ca/";
+    </script>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .container {
+            width: 298px;
+            height: 248px;
+            position: relative;
+            border: 1px solid #666666;
+            overflow: hidden;
+            visibility: hidden;
+            background-color: black;
+        }
+
+
+        .size {
+            width: 300px;
+            height: 250px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .person {
+            width: 381px;
+            position: absolute;
+            top: -26px;
+            left: -40px;
+        }
+
+        .svg {
+            z-index: 1
+        }
+
+
+        #r43_clickTag {
+            width: 298px;
+            height: 248px;
+            cursor: pointer;
+            display: block;
+            z-index: 940;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        /*.legal {
+            width: 298px;
+            height: 248px;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }*/
+
+        #replayButton {
+            width: 12px;
+            height: 12px;
+
+            position: absolute;
+            top: 5px;
+            right: 13px;
+            fill: #000;
+            cursor: pointer;
+            z-index: 1000;
+            opacity: 0;
+        }
+
+        .line-wrap {
+            width: 300px;
+            height: 250px;
+            overflow: hidden;
+            position: absolute;
+            left: -300px;
+        }
+
+        .line-wrap img {
+            left: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="container">
+        <a href="#" id="replayButton">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13.619 13.739" style="position:relative;float:left;">
+                <path d="M10.91,1.277c-2.902-2.073-6.883-1.56-9.178,1.08L0.279,1.319L0,6.603l4.846-2.022L3.357,3.519c1.648-1.753,4.389-2.064,6.4-0.627c2.191,1.567,2.703,4.627,1.135,6.82c-1.566,2.194-4.625,2.704-6.82,1.137c-0.939-0.673-1.615-1.66-1.896-2.779L0.254,8.553c0.396,1.575,1.344,2.963,2.668,3.907c3.082,2.204,7.383,1.488,9.584-1.596C14.711,7.78,13.994,3.48,10.91,1.277z" />
+            </svg>
+        </a>
+        <img src="bg.png" alt="" class="size bg">
+
+        <img src="text-f1.png" alt="" class="size text-f1">
+        <img src="text-f2.png" alt="" class="size text-f2">
+        <img src="text-f3.png" alt="" class="size text-f3">
+
+        <img src="samsung-logo.png" alt="" class="size s-logo">
+        <img src="logo.png" alt="Freedom Mobile Logo" class="size">
+        <img src="button.png" alt="" class="size" id="button">
+        <img src="legal.png" alt="" class="size legal">
+        <a id="r43_clickTag" onclick="javascript:window.open(window.clickTag)" target="_blank"></a>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/plugins/CSSPlugin.min.js"></script>
+
+    <script>
+        var replay = document.getElementById("replayButton");
+
+        var timeLine = new TimelineLite()
+            .set('.container', {
+                visibility: 'visible'
+            })
+            // .set('.person, .text', { filter: 'brightness(100%)'})
+
+
+            .to('#lw3', .5, {
+                opacity: 0,
+                delay: 0.5
+            })
+
+            .from('.text-f1', 0, {
+                scale: 15,
+                x: 100,
+                y: 700,
+                delay: -0.25
+            }, "f1")
+
+            .from('.text-f2, .s-logo', .5, {
+                opacity: 0,
+                x: -700,
+                delay: -0.25
+            }, "f2")
+            .to('.text-f1', .5, {
+                opacity: 0,
+                delay: -0.25
+            }, "f2")
+
+            .from('.legal', .5, {
+                opacity: 0,
+                delay: -.45
+            }, "f2")
+
+            .to('.text-f2', .5, {
+                opacity: 0,
+                delay: 1.5
+            })
+            .from('.bg', .75, {
+                opacity: 0,
+                delay: -0.25
+            }, "f2")
+            .from('.text-f3', .5, {
+                opacity: 0,
+                x: -700,
+                delay: -0.25
+            }, "f3")
+
+            .from('#button', .5, {
+                opacity: 0
+            });
+
+        var hoverTL = new TimelineMax({
+            repeat: -1,
+            repeatDelay: .5
+        })
+        hoverTL.pause()
+            .set('#button', {
+                transformOrigin: "50px 225px"
+            })
+            .to('#button', .2, {
+                scale: 1.05,
+                ease: Power3.easeOut
+            })
+            .to('#button', .2, {
+                scale: 1,
+                ease: Power3.easeOut
+            })
+            .to('#button', .2, {
+                scale: 1.05,
+                ease: Power3.easeOut
+            })
+            .to('#button', .2, {
+                scale: 1,
+                ease: Power3.easeOut
+            })
+
+        container.onmouseover = function () {
+            hoverTL.play()
+        }
+
+        container.onmouseout = function () {
+            hoverTL.restart()
+            hoverTL.pause()
+        }
+
+        replay.onclick = function () {
+            timeLine.restart();
+        }
+    </script>
+    <!-- <script src="http://banners.rain43.com/scripts/timeline-scrubber.js"></script>
+    <script type="text/javascript">
+    TimelineScrubber.init(timeLine);
+    </script> -->
+</body>
+
+</html>

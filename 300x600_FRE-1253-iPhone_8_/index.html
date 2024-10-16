@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en" class="">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="ad.size" content="width=300,height=600">
+    <title>300x600-banner</title>
+    <script>
+        // TODO: Chang this
+        var clickTag = "https://www.freedommobile.ca/plans-and-devices/mobile-devices/device-details/apple-iphone-xs-max-(64gb)";
+    </script>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .container {
+            width: 298px;
+            height: 598px;
+            position: relative;
+            border: 1px solid black;
+            overflow: hidden;
+            visibility: hidden;
+            background: #ffffff;
+        }
+
+        #label {
+            opacity: 1;
+
+        }
+
+        .bg {
+            width: 298px;
+            height: 208px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            opacity: 1;
+            background: #ffffff;
+        }
+
+
+        #r43_clickTag {
+            width: 298px;
+            height: 598px;
+            cursor: pointer;
+            display: block;
+            z-index: 940;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        #r43_clickTag:hover {
+            cursor: pointer;
+        }
+
+        .size {
+            width: 300px;
+            height: 600px;
+            position: absolute;
+            top: 0;
+        }
+
+        .button,
+        .legal {
+            backface-visibility: hidden;
+        }
+
+        .button {
+            opacity: 0;
+        }
+
+        .legal {
+            opacity: 1;
+        }
+
+
+        @keyframes hover-animation {
+            0% {
+                top: -5px;
+            }
+
+            50% {
+                top: -10px;
+            }
+
+            100% {
+                top: -5px;
+            }
+        }
+
+        #replayButton {
+            width: 12px;
+            height: 12px;
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            fill: #000;
+            cursor: pointer;
+            z-index: 1000;
+            opacity: 0;
+        }
+
+        .logo2 {
+            opacity: 0;
+        }
+
+        #phone {
+            opacity: 1;
+        }
+
+        .button,
+        .button-mask {
+            opacity: 0;
+            width: 90px;
+            height: 21px;
+            position: absolute;
+            top: 75px;
+            left: 50%;
+            transform: translate(-50%);
+            -webkit-transform: translate(-50%);
+            -moz-transform: translate(-50%);
+            -ms-transform: translate(-50%);
+            -o-transform: translate(-50%);
+        }
+
+        .button {
+            background-color: #ec7f23;
+        }
+
+        .button-mask {
+            overflow: hidden;
+            position: absolute;
+
+        }
+
+        .button-img {
+
+            width: 100%;
+            height: 100%;
+        }
+
+        .light {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="container">
+        <!-- <img src="bg.png" class="bg" alt="background"> -->
+
+        <img src="logo.png" alt="Freedom Mobile Logo" class="size logo">
+
+        <!--<img src="text1.png" alt="iPhone Xs Max" class="size text1">-->
+        <img src="text1.png" alt="GREAT iPHONE. GREAT OFFER." class="size text1">
+        <img src="text2.png" alt="iPHONE 8.ONLY $10* /mo. on select Big Gig plans. Save $579." class="size text2">
+        <img src="text3.png" alt="Learn More" class="size text3">
+
+        <!-- <img src="test2.png" alt="iPhone Xs" class="size phone"> -->
+
+        <img src="label.png" alt="iPhone 8" class="size label" id="label">
+        <img src="phone.png" alt="iPhone 8" class="size phone" id="phone">
+
+        <img src="legal.png" alt="" class="size legal">
+
+        <a id="r43_clickTag" onclick="javascript:window.open(window.clickTag)" target="_blank"></a>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenMax.min.js"></script>
+    <script>
+        var container = document.getElementById("container");
+
+        var replay = document.getElementById("replayButton");
+
+        var timeLine = new TimelineLite()
+            .set('.container', {
+                visibility: 'visible'
+            })
+
+            .fromTo('.phone', .7, { top: -80, opacity: 0, delay: .5 }, { top: 0, opacity: 1 }, "frame1")
+            .from('#label', 1, { opacity: 0, delay: .8 }, "frame1")
+            .from('.text1', .7, { x: -300, opacity: 0, delay: 0 }, "frame1")
+
+            .to('.text1', .7, { opacity: 0, delay: 1 }, "frame2")
+
+            .from('.text2, .legal', .7, { opacity: 0, x: -300, delay: 0 }, "frame3")
+
+            .from('.text3', .75, { opacity: 0, delay: .5, ease: Power0.easeOut }, "frame4")
+
+            ;
+
+        var hoverTL = new TimelineMax({ repeat: -1, repeatDelay: .5 })
+        hoverTL.pause()
+            .fromTo('.light', 1, { x: -100 }, { x: 150 });
+
+
+        container.onmouseover = function () {
+            console.log("hit")
+            hoverTL.play()
+        }
+
+        container.onmouseout = function () {
+            hoverTL.restart()
+            hoverTL.pause()
+        }
+
+
+        replay.onclick = function () {
+            timeLine.restart();
+        }
+    </script>
+    <!-- <script src="https://banners.rain43.com/scripts/timeline-scrubber.js"></script>
+<script>
+    TimelineScrubber.init(timeLine);
+</script> -->
+</body>
+
+</html>
