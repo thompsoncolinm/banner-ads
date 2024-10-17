@@ -116,7 +116,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/plugins/CSSPlugin.min.js"></script>
 
     <script>
-        var replay = document.getElementById("replayButton");
+        
+
 
         var timeLine = new TimelineLite()
             .set('.container', {
@@ -173,6 +174,7 @@
         var hoverTL = new TimelineMax({
             repeat: -1,
             repeatDelay: .5
+            //repeatDelay: .5
         })
         hoverTL.pause()
             .set('#button', {
